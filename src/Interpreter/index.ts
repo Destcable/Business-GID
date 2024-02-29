@@ -1,4 +1,22 @@
-class Interpreter { 
+class Variables { 
+    variables: any;
+    
+    constructor() { 
+        this.variables = {};
+    }
+
+    public push(name: string, value: any) {
+        this.variables[name] = value;
+    }
+
+    public get(name: string) { 
+        return this.variables[name];
+    }
+}
+
+class Interpreter {
+    variables = new Variables();
+
     public interpret(code: String) {
         const lines = code.split(';');
         
@@ -18,7 +36,7 @@ class Interpreter {
         const [varDeclaration, varValue] = line.split('=').map(str => str.trim());
         const [_, varName] = varDeclaration.split(/\s+/);
 
-        console.log('const ' + varName  + ' = ' + varValue + ';');
+        this.variables.push(varName, varValue);
     }
 };
 
