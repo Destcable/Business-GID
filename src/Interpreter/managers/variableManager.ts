@@ -9,7 +9,7 @@ class Variables {
         this.variables[name] = value;
     }
 
-    public get(name: string) { 
+    public get(name: string): any { 
         return this.variables[name];
     }
 }
