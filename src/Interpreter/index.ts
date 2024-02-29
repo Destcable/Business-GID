@@ -15,9 +15,10 @@ class Interpreter {
     }
 
     private setVariable(line: string) {
-        const [varName, varValue] = line.split('=').map(str => str.trim());
+        const [varDeclaration, varValue] = line.split('=').map(str => str.trim());
+        const [_, varName] = varDeclaration.split(/\s+/);
 
-        console.log('const ' + varName + ' = ' + varValue);
+        console.log('const ' + varName  + ' = ' + varValue + ';');
     }
 };
 
