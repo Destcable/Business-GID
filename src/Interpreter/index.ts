@@ -12,7 +12,7 @@ class Interpreter {
                 this.setVariable(line);
             }       
             
-            if (line.includes('WINDOW')) { 
+            if (line.includes('WINDOW-CREATE')) { 
                 this.createWindow(line);
             }
             
@@ -30,15 +30,7 @@ class Interpreter {
     }
 
     private createWindow(line: string) {
-        const match = line.match(/WINDOW\s*([A-Za-z_][A-Za-z0-9_]*)/);
-
-        if (!match) {
-            throw new Error('Invalid WINDOW declaration syntax');
-        }
-
-        const currentWindowName = match[1];
-
-        console.log(currentWindowName);
+        console.log(line);
     }
 };
 
